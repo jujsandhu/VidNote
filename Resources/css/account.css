@@ -1,0 +1,100 @@
+/* 
+    Document   : accountCSS
+    Created on : Jun 3, 2014, 9:34:07 PM
+    Author     : jujsandhu
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+.searchBar{
+    position: absolute;
+    margin-left: 15%;
+    display:inline-block;
+    float:left;
+    margin-top: 10px;
+}
+
+#wrapper{
+    margin-top: -20px;
+   height:600px;
+   overflow: hidden;
+}
+
+.leftCont{
+    float:left;
+    border-right:1px solid white;
+    background-color:white;
+    width:20%;
+    height:600px;
+    padding: 10px;
+}
+
+
+.leftCont .menu{
+    margin-top:50px;
+}
+
+.leftCont #newVidButton{
+   
+    background-color: #009999;
+    color:white;
+    width:120px;
+    height:30px;
+    padding:5px;
+     padding-left: 15px;
+    margin-left:38px;
+    border-radius: 3px;
+}
+
+.leftCont #newVidButton:hover{
+    background-color: #009999;
+    box-shadow: 0px 3px 1px #999;
+}
+
+.leftCont .menu #list{
+    margin-top: 10px;
+    list-style-type: none;
+}
+
+.leftCont .menu #list > li > a:visited{
+    color: grey;
+}
+
+.middleCont{
+    float:left;
+    height:600px;
+    width:600px;
+}
+
+
+/*popup*/
+label, input { display:block; }
+input.text { margin-bottom:12px; width:95%; padding: .4em; }
+fieldset { padding:0; border:0; margin-top:25px; }
+.ui-dialog .ui-state-error { padding: .3em; }
+.validateTips { border: 1px solid transparent; padding: 0.3em; }
+.ui-dialog-titlebar{background: gainsboro !important; border-radius: 0px !important; border-color:white !important;}
+.ui-dialog-title{font-family: Century Gothic, sans-serif;}
+
+#dialog-form{
+    font-size: 12px;
+}
+
+#vidBlock{
+    background-color: white;
+    height:200px;
+    width:300px;
+    margin-left: 10px;
+    margin-top:10px;
+}
+
+#thumbnail{
+    margin-top: 20px;
+    margin-left:20px;
+    height:150px;
+    width:250px;
+}
