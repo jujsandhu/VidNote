@@ -31,7 +31,6 @@ and open the template in the editor.
                     <span class="icon-bar"></span>
                 </button>
                
-
                 <div class ="collapse navbar-collapse navHeaderCollapse">
                
                     <form class="searchBar" method="get" action=""> 
@@ -62,9 +61,15 @@ and open the template in the editor.
                     <li><a id='MyAnnolink' href="">My Annotations</a></li> 
                     <li><a href="">Starred</a></li> 
                     <li><a href="">Recent</a></li> 
-                    <li><a href="">Categories</a></li> 
                     <li><a href="">Shared with me</a></li>
                 </ul>
+                </div>
+                <div class="Categories">
+                    <p>Categories</p>
+                    <ul id="catList">
+                    
+                    </ul>
+                    
                 </div>
             </div>
             
@@ -80,6 +85,8 @@ and open the template in the editor.
                 <fieldset>
                     <label for="title">Title</label>
                     <input type="text" default="" name="title" id="title" class="text ui-widget-content ui-corner-all">
+                    <label for="title">Category</label>
+                    <input type="text" default="" name="category" id="category" class="text ui-widget-content ui-corner-all">
                     <label for="url">YouTube URL</label>
                     <input type="text" default="" name="url" id="url" class="text ui-widget-content ui-corner-all">
 
