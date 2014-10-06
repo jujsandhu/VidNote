@@ -9,14 +9,13 @@ body{
 }
 
 .navbar-inverse {
-    
-    background-color: white;
+     
+    background-color:white;
     border-color: #d0c8c8;
     
 }
 /* title */
 .navbar-inverse .navbar-brand {
-    
     line-height: 40px;
     height: 40px;
     padding-top: 0;
@@ -63,6 +62,7 @@ body{
 .navbar-inverse .navbar-nav > .dropdown > a .caret {
     border-top-color: #777;
     border-bottom-color: #777;
+    
 }
 .navbar-inverse .navbar-nav > .dropdown > a:hover .caret,
 .navbar-inverse .navbar-nav > .dropdown > a:focus .caret {
@@ -97,20 +97,22 @@ body{
 }
 
 #wrapper{
-   height:600px;
+   margin-top: -12px;
+   height:630px;
    overflow: hidden;
 }
 
 .left_container{
+    margin:0;
     margin-top: 0px;
-    margin-left: 20px;
+    margin-left: 10px;
     float:left;
     border:1px solid white;
     box-shadow: 2px 2px 4px #DDD;
     background-color:white;
-    width:680px;
-    padding: 10px;
-    height:580px;
+    width:600px;
+    padding: 3px;
+    height:100%;
 }
 
 .left_container #url_label{
@@ -121,35 +123,61 @@ body{
     margin-left: 560px;
 }
 
+.left_container #features{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+     display:inline-block;
+}
+
+.left_container #features form{
+     float:left;
+}
+
+.left_container #features #addImportant{
+    margin-left: 15px;
+    font-size: 12px;
+    margin-top: 5px;
+    float:left;
+}
+
+.left_container #features #addImportant img{
+    cursor: pointer;
+}
+
+.left_container #features #addImportant #highImp p, #lowImp p{
+    padding-left:10px; 
+     display:inline;
+}
+
+
+
+
 .right_container{
     overflow: auto;
     position:absolute;
     border:1px solid;
     padding:5px;
-    margin-left:710px;
+    margin-left:615px;
     border-color: white;
     background-color:white;
     box-shadow: 2px 2px 4px #DDD;
-    width:530px;
-    height:580px;
+    width:630px;
+    height:630px;
 }
 
-#annotationLabel{
-    font-family: Century Gothic, sans-serif;
-    color: #009999
-}
 
 #noteArea{
-    margin-top: 20px;
+    margin-top: 10px;
     border-color: #d0c8c8;
 }
 
 .rowNote{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 200;
     float:left;
     display:inline-block;
-   word-wrap:break-word;
+    word-wrap:break-word;
     overflow:auto;
-    width:320px;
+    width:440px;
     margin-right: 10px;
 }
 
@@ -157,8 +185,7 @@ body{
     float:left;
     display:inline-block;
    word-wrap:break-word;
-    
-    width:320px;
+    width:440px;
     border-color: #d0c8c8;
     padding: 5px;
     height:40px;
@@ -169,9 +196,10 @@ div[id^="note_"]{
 
 div[id^="row_"]{    
     height:100%;
-    padding: 4px;
+    padding-left: 4px;
+    padding-top: 4px;
     float: left;
-    width: 500px;
+    width: 600px;
     border-bottom: thin solid #d0c8c8;
 }  
 
@@ -199,5 +227,111 @@ div[id^="delete_"]{
     cursor:pointer;
 }
 
+/********Edit feature**********/
+
+/***cursor******/
+#editFeature{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    border:1px solid #D5D5D5;
+    height:190px;
+    width:590px;
+    overflow-x: auto;
+}
+
+#editFeature #verticalCursor{
+    margin-left: -5px;
+    width:10px;
+    opacity: 0.6;
+    position:absolute;
+    height:228px;
+    border:1px solid white;
+}
+
+#editFeature #verticalCursor:hover{
+opacity:0.3;
+}
+    
+#editFeature #line{
+    margin-top: -5px;
+    position:relative;
+    width:1px;
+    margin-left: 8px;
+     border:2px solid red;
+     cursor: pointer;   
+     height:165px;
+}
+
+/*********  timebar  ********/
+#editFeature #timebar{
+    border:1px solid lightgrey;
+    height:30px;
+    width:590px;
+}
+
+#editFeature #timebar p{
+    padding-top: 5px;
+    padding-left:2px;
+    font-size: 11px;
+    float: left;
+    color:  #d0c8c8;
+}
+
+#editFeature #timebar #endTime{
+   margin-left: 520px;
+}
 
 
+#editFeature #content{
+    width:590px;
+    height:198px;
+    background-color: lightgrey;
+}
+
+#triangle {
+	width: 0;
+	height: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 26px solid red;
+        cursor: pointer;
+}
+
+/*******content**************************************/
+
+.left_container #content #important{
+    height:30%;
+}
+
+.left_container #content #notes{
+    border-top:2px solid white;
+    height:40%;
+}
+
+.left_container #content #important .highImpMark{
+    height:59px;
+    position:absolute;
+    float:left;
+    border:2px solid red;
+    opacity: 0.6;
+    cursor:pointer;
+    margin-left:1px;
+    border-radius: 35px;
+}
+
+.left_container #content #important .highImpMark:hover{
+   opacity: 0.2;
+}
+
+.left_container #content #important .lowImpMark{
+    height:59px;
+    position:absolute;
+    float:left;
+    border:2px solid green;
+    opacity: 0.6;
+    cursor:pointer;
+    border-radius: 35px;
+}
+
+.left_container #content #important .lowImpMark:hover{
+   opacity: 0.2;
+}

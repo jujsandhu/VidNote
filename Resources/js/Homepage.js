@@ -14,7 +14,7 @@
             data: 'action=Login&'+$('form').serialize(),
             success: function(data) {
                 if(data == 'true'){
-                    document.location.href = "account.php"
+                    document.location.href = "account.php";
                 }
                 
             }

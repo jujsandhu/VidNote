@@ -20,23 +20,20 @@ function Login() {
         $password = trim($_POST['password']);
 
         if(CheckLoginInDB($username, $password)){
+          session_start();
+          $_SESSION['username'] = $username;
+          $_SESSION['time']     = time();
             echo 'true';
         }
-        else echo 'false';
-
-        session_start();
-        
-
-        //$_SESSION[$this->GetLoginSessionVar()] = $username;
+        else echo 'false'; 
     }
 }
 
 function CheckLoginInDB($username, $password) {
 
-   
     $pwdmd5 = md5($password);
     
-    $qry = "select * from Accounts where Username = 'jujsandhu' and Password= '".$pwdmd5."'";
+    $qry = "select * from Accounts where Username = '".$username."' and Password= '".$pwdmd5."'";
 
     $result = mysql_query($qry);
 

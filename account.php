@@ -1,7 +1,17 @@
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+  echo 'Unauthorised';
+  exit();
+}
+else if ($_SESSION['time'] + 900 > time()) {
+  $_SESSION['time'] = time();
+} else {
+  
+  header('Location:http://'. $_SERVER[HTTP_HOST] . '/index.php?status=timeout');
+}
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,9 +31,10 @@ and open the template in the editor.
         <!-- popup-->
     </head>
     <body>
+        
         <div class="navbar navbar-inverse navbar-static-top">
             <div class="container">
-                <a href ="index.html" class="navbar-brand">VidNote</a>
+                <a href ="account.php" class="navbar-brand">VidNote</a>
                 <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollpase">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -37,7 +48,7 @@ and open the template in the editor.
                     <table cellpadding="0px" cellspacing="0px"> 
                         <tr> 
                             <td>
-                                <input type="text" name="zoom_query" style="width:500px; border:1px solid #D5D5D5; height:25px; padding:5px px; position:relative;"> 
+                                <input id='searchValue' type="text" name="query" placeholder=" Search for annotations" style="width:500px; border:1px solid #D5D5D5; height:25px; padding:5px; position:relative;"> 
                             </td>
                             <td > 
                                 <input type="submit" value="" style="border:1px solid #D5D5D5; background:url('images/searchbutton3.jpeg') no-repeat; background-position-x: 15px; background-position-y: 4px; background-size: 22px 15px; width: 54px; height: 25px;">
@@ -46,7 +57,7 @@ and open the template in the editor.
                     </table>
                 </form>
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="account.php">J Sandhu</a></li>
+                        <li class="sessionUser"><a href="account.php"><?php echo $_SESSION['username'] ?></a></li>
                         <li><img src="images/account.jpeg" height="40"></li>
                     </ul> 
                 </div>
@@ -56,16 +67,16 @@ and open the template in the editor.
         <div id="wrapper">
             <div class="leftCont">
                 <div class="menu">
-                <div id="newVidButton">New Video</div>    
+                <div id="newVidButton">New Annotation</div>    
                 <ul id="list">
-                    <li><a id='MyAnnolink' href="">My Annotations</a></li> 
-                    <li><a href="">Starred</a></li> 
-                    <li><a href="">Recent</a></li> 
-                    <li><a href="">Shared with me</a></li>
+                    <li id="li_home" class="selected"><a href='account.php' id="a_home">My Annotations</a></li> 
+                    <li id="li_starred"><a id="a_starred" >Starred</a></li> 
+                    <li id="li_recent" ><a id="a_recent" >Recent</a></li> 
+                    <li id="li_shared" ><a id="a_shared" >Shared with me</a></li>
                 </ul>
                 </div>
                 <div class="Categories">
-                    <p>Categories</p>
+                    <p id="catTitle">Categories</p>
                     <ul id="catList">
                     
                     </ul>
@@ -80,15 +91,15 @@ and open the template in the editor.
             </div>   
         </div>
         
-        <div id="dialog-form" title="New Video Annotation">
+        <div id="dialog-form" title="New Annotation">
             <form>
                 <fieldset>
                     <label for="title">Title</label>
-                    <input type="text" default="" name="title" id="title" class="text ui-widget-content ui-corner-all">
+                    <input type="text" default="" name="title" id="title" class="text ui-widget-content">
                     <label for="title">Category</label>
-                    <input type="text" default="" name="category" id="category" class="text ui-widget-content ui-corner-all">
+                    <input type="text" default="" name="category" id="category" class="text ui-widget-content">
                     <label for="url">YouTube URL</label>
-                    <input type="text" default="" name="url" id="url" class="text ui-widget-content ui-corner-all">
+                    <input type="text" default="" name="url" id="url" class="text ui-widget-content">
 
                     <!-- Allow form submission with keyboard without duplicating the dialog button -->
                     

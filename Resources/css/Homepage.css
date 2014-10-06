@@ -11,7 +11,6 @@ body{
 }
 /* title */
 .navbar-inverse .navbar-brand {
-    
     line-height: 70px;
     height: 70px;
     padding-top: 0;
@@ -24,7 +23,8 @@ body{
 }
 /* link */
 .navbar-inverse .navbar-nav > li > a {
-    
+     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+     font-weight: 200;
     line-height: 70px;
     height: 70px;
     padding-top: 0;
@@ -100,19 +100,20 @@ body{
 }
 
 .img-responsive{
-        background-image: url(../../images/laptop.jpg);
-	background-size: 100% auto; 
+    position:absolute;
+        background-image: url(../../images/laptop.jpg); 
         background-repeat:no-repeat;
+        background-size: 100% auto;
         display: compact;
-	text-align: center;
-        height:600px;
+        width:100%;
+        bottom:0px;
+        height:100%;
 }
 
 
 .logo-wrapper{
-    
-    margin-top: 40px;
-    display: inline-block;
+    margin-top: 90px;
+    bottom:0px;
     color: white;
 }
 
@@ -120,18 +121,19 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     font-size:2em;
     font-weight:100;
+    text-align: center;
 }
 
 .logo-wrapper .highlight{
     font-size: 3em;
-    font-weight: 900; 
+    font-weight: 900;
+    text-align: center;
 }
 
 .logo-wrapper .subheading{
-    margin-left: 60%;
-    width:400px;
    font-style:italic;
     font-size: 18px;
+    text-align: center;
 }
 
 

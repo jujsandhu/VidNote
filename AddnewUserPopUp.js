@@ -55,6 +55,9 @@ dialog = $( "#dialog-form" ).dialog({
       
     });
     
+    
+ 
+  
   $('#MyAnnolink').click(function(){ 
       getVideos(); 
       return false; 
@@ -147,8 +150,10 @@ dialog = $( "#dialog-form" ).dialog({
         
       } 
   } 
+ 
   
   function getCategoryList(){
+      
        $.ajax({   
         type: "POST", // HTTP method POST or GET
         data: {action: 'getCategories'},
@@ -220,7 +225,7 @@ $('.searchBar').submit(function(e) {
      getVideosFromSearch(searchQuery);  
 });
 
-/***** color of current page link, on click for categories in menu pane *****/
+/***** color of current page link *****/
 $(document.body).on('click', 'li[id^="catli_"]' ,function(event){
     $category = event.target.id.split("_");
      $('#catList li').each(function(index) {

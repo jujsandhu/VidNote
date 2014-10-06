@@ -2,7 +2,7 @@
 
 if(isset($_POST['action']) && !empty($_POST['action'])) 
 {
-    
+      
     include_once("connectToDatabase.php");
     $action = $_POST['action'];
     switch($action) {
@@ -11,6 +11,8 @@ if(isset($_POST['action']) && !empty($_POST['action']))
         case 'getAnnotationList' : getAnnotationList();break;
         case 'getCategories' : getCategories(); break;
         case 'getCategoryVideos' : getCategoryVideos(); break;
+        case 'getSearchVideos' : getSearchVideos(); break;
+        case 'getImportantMarkList' : getImportantMarkList(); break;
     }
     mysqli_close();
 }
@@ -18,12 +20,21 @@ if(isset($_POST['action']) && !empty($_POST['action']))
 
 function getVideo() 
 {
-    $result = mysql_query("select `VideoID`, `Date/Time`, `Title`, `URL` from Videos Where `UserID` = '1' ");
+    $userID = getUserIDByName();
+    $result = mysql_query("select `VideoID`, `Date/Time`, `Title`, `URL` from Videos Where `UserID` = '".$userID."' ");
     $rows = array();
     while ($r = mysql_fetch_assoc($result)) {
         $rows[] = $r;
     }
     echo json_encode($rows);
+}
+
+function getUserIDByName(){
+    session_start();
+    $username = $_SESSION['username'];
+    
+    $result = mysql_query("select `UserID` from Accounts Where `Username` = '".$username."' ");
+    return mysql_result($result, 0);
 }
 
 function getVideoUrl(){
@@ -46,10 +57,9 @@ function getVideoUrl(){
 function getAnnotationList() 
 {
     $videoID = $_POST['VideoID'];
-    $userID = $_POST['UserID'];
     
     $result = mysql_query("select * from Annotations 
-                          Where `VideoID` = '".$videoID."' AND `UserID` = '1'  order by `Time` asc");
+                          Where `VideoID` = '".$videoID."' order by `Time` asc");
     
     $rows = array();
     while ($r = mysql_fetch_assoc($result)) {
@@ -61,7 +71,8 @@ function getAnnotationList()
 
 function getCategories(){
     
-    $result = mysql_query("select distinct(Category) from Videos order by Category asc");
+    $userID = getUserIDByName();
+    $result = mysql_query("select distinct(Category) from Videos where UserID = '".$userID."' order by Category asc");
     
     $rows = array();
     while ($r = mysql_fetch_assoc($result)) {
@@ -83,6 +94,35 @@ function getCategoryVideos(){
     }
 
     echo json_encode($rows);
+}
+
+function getSearchVideos(){
+    $title = $_POST['Title'];
+    
+    $result = mysql_query("select * from Videos where Title like '%".$title."%'");
+    
+    $rows = array();
+    while ($r = mysql_fetch_assoc($result)) {
+        $rows[] = $r;
+    }
+
+    echo json_encode($rows);
+}
+
+function getImportantMarkList(){
+    $videoID = $_POST['VideoID'];
+    $userID = $_POST['UserID'];
+    
+    $result = mysql_query("select * from ImportantMark 
+                          Where `VideoID` = '".$videoID."' AND `UserID` = '".$userID."'  order by `Time` asc");
+    
+    $rows = array();
+    while ($r = mysql_fetch_assoc($result)) {
+        $rows[] = $r;
+    }
+
+    echo json_encode($rows);
+    
 }
 
 

@@ -11,8 +11,10 @@ root {
 }
 
 .searchBar{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     position: absolute;
-    margin-left: 15%;
+    margin-left: 1%;
+    font-weight: 100;
     display:inline-block;
     float:left;
     margin-top: 10px;
@@ -25,13 +27,13 @@ root {
 }
 
 .leftCont{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     float:left;
-    
-    border-right:1px solid white;
-    background-color:white;
+    background-color: white;
     width:180px;
     height:100%;
     padding: 10px;
+    border-right: 1px solid #e5e5e5;
 }
 
 
@@ -41,59 +43,102 @@ root {
 }
 
 .leftCont #newVidButton{
-   font-family: Arial, Helvetica, sans-serif;
     background-color: #009999;
     color:white;
-    width:120px;
+    width:160px;
     height:30px;
     padding:5px;
      padding-left: 15px;
-    margin-left:10px;
     border-radius: 3px;
 }
 
 .leftCont #newVidButton:hover{
-    background-color: #009999;
-    box-shadow: 0px 3px 1px #999;
+    opacity:0.7;
     cursor: pointer; 
 }
 
+/****** Menu stuff *******/
+.selected, .selected a{
+    background-color: #b92c28;
+    color:white !important;
+    text-decoration: none;
+}
+
 .leftCont .menu #list{
+    margin:0;
     padding:0;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 400;
-    padding: 0 8px;
-    margin-left:10px;
     margin-top: 10px;
     list-style-type: none;
 
 }
 
-.leftCont .menu #list > li > a:visited{
-    
+.leftCont .menu #list > li{
+    padding-left: 20px;
+    padding-top: 3px;
+    padding-bottom: 3px;
 }
+
+.leftCont .menu #list > li > a{
+    color:black;
+}
+
+.leftCont .menu #list > li:hover{
+    color:white;
+    background-color: #d9534f;
+    cursor: pointer;
+}
+
+.leftCont .menu #list > li:hover a{
+    cursor:pointer;
+    background-color: #d9534f;
+    color:white;
+    text-decoration: none;
+}
+
 
 .leftCont .Categories{
     margin:0;
-    padding:0;
     margin-top: 30px;
     color: grey;
-    margin-left:18px;
 }
+
 
 .leftCont .Categories #catList{
     margin:0;
     padding:0;
     font-weight: 400;
-   list-style-type: none;     
-   cursor: pointer;
-   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    list-style-type: none;     
+    cursor: pointer;
 }
 
-
-.leftCont .Categories #catList > li > a:visited{
-    color:grey;
+.leftCont .Categories #catTitle{
+    margin-left:20px;
+    color: #b92c28;
 }
+
+.leftCont .Categories #catList >li[id^="catli_"]{
+    padding-bottom: 3px;
+    padding-top:3px;
+    padding-left:20px;
+}
+
+.leftCont .Categories #catList > li[id^="catli_"] > a[id^="cata_"]{
+    color:black;
+}
+
+.leftCont .Categories #catList >li[id^="catli_"]:hover {
+    background-color: #d9534f;
+    
+}
+
+.leftCont .Categories #catList >li[id^="catli_"]:hover > a[id^="cata_"]{
+    color:white;
+    text-decoration: none;
+    background-color: #d9534f;
+}
+
+/****** End Menu stuff *******/
 
 .middleCont{
     left:200px;
@@ -102,36 +147,39 @@ root {
 }
 
 
+
 /*popup*/
-label, input { display:block; }
+label, input { display:block; font-weight: 200;}
 input.text { margin-bottom:12px; width:95%; padding: .4em; }
-fieldset { padding:0; border:0; margin-top:25px; }
+fieldset { padding:0; border:0; margin-top:15px;}
 .ui-dialog .ui-state-error { padding: .3em;}
 .validateTips { border: 1px solid transparent; padding: 0.3em; }
-.ui-dialog-titlebar{background: gainsboro !important; color: white !important; background-color: #4DB8B8 !important; 
-                   border-color: #80CCCC !important;border-radius: 0px !important;}
-.ui-dialog-title{font-family: Century Gothic, sans-serif; font-weight: 200;}
+.ui-dialog-titlebar{background: #009999 !important; margin: -5px;color: white !important; 
+                   border-color: #009999 !important;border-radius: 0px !important;}
+.ui-dialog-title{font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 200;}
 
 .ui-button .ui-button-text {
-    font-size:13px !important;
+    font-size:12px !important;
 }
 
 #dialog-form{
     font-size: 12px;
+    
 }
 
 .middleCanvas{ 
+    padding-left: 5px;
     margin:10px;
     background: white;
-    overflow:auto;
-    box-shadow: 5px 0 15px -8px #ccc, -5px 0 8px -8px #ccc;
+    height: 100%;
     display: inline-block;
+    border: 1px solid #DDD;
     width: 1070px;
 }
 
 div[id^="vidRow_"]{
    
-    height: 200px;
+    height: 210px;
     border-top: 1px solid #ccc;
 }
 
@@ -141,7 +189,7 @@ div[id^="vidBlock_"]{
     position: relative;
     background-color: white;
     height:180px;
-    width:260px;
+    width:210px;
     margin-left: 1px;
     margin-top:10px;
     
@@ -177,7 +225,7 @@ p[id^="subheading_"]{
     margin-top: 5px;
     margin-left:5px;
     height:120px;
-    width:230px;
+    width:200px;
 }
 
 .image:hover{cursor: pointer;}
